@@ -7,3 +7,10 @@ def block(num: int) -> str:
         return ""
     rows = ["+-+", "| |", "+-+"]
     result = []
+
+def main():
+    n = int(input("Enter the number of blocks: "))
+    print(block(n))
+
+if __name__ == "__main__":
+    main()
