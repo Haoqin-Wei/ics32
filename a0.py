@@ -7,6 +7,9 @@ def block(num: int) -> str:
         return ""
     rows = ["+-+", "| |", "+-+"]
     result = []
+    for i in range(num):
+        for row in rows:
+            result.append(row)
 
 def main():
     n = int(input("Enter the number of blocks: "))
