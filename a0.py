@@ -14,7 +14,7 @@ def block(num: int) -> str:
 
     return "\n".join(list1)
 def main():
-    n = int(input("Enter the number of blocks: "))
+    n = int(input())
     print(block(n))
 
 if __name__ == "__main__":
