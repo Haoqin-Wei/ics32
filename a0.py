@@ -5,12 +5,14 @@
 def block(num: int) -> str:
     if num == 0:
         return ""
-    rows = ["+-+", "| |", "+-+"]
-    result = []
-    for i in range(num):
-        for row in rows:
-            result.append(row)
+    list1 = ["+-+", "| |", "+-+"]
+    for i in range(1, num):
+        space = "  " * i
+        list1[-1] = list1[-1] + "-+"
+        list1.append(f"{space}| |")
+        list1.append(f"{space}+-+")
 
+    return "\n".join(list1)
 def main():
     n = int(input("Enter the number of blocks: "))
     print(block(n))
