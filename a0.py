@@ -5,3 +5,5 @@
 def block(num: int) -> str:
     if num == 0:
         return ""
+    rows = ["+-+", "| |", "+-+"]
+    result = []
