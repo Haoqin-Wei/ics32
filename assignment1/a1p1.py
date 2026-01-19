@@ -18,28 +18,33 @@ def main():
                 print("missing directory!")
                 continue
 
-            the_path = shit[1]
+            the_path = Path(shit[1])
 
             if not the_path.exists():
                 print("ERROR: Directory does not exist")
                 continue
 
-            list_dict = the_path.iterdir()
-            files = []
-            dirs = []
-            for items in list_dict:
-                if items.is_file():
-                    files.append(items)
-                elif items.is_dir():
-                    dirs.append(items)
+def list_one_dir(the_path: Path, recursive: bool):
+    list_dict = the_path.iterdir()
+    files = []
+    dirs = []
+    for items in list_dict:
+        if items.is_file():
+            files.append(items)
+        elif items.is_dir():
+            dirs.append(items)
             
-            for i in files:
+        for i in files:
                 print(str(i))
-            for p in dirs:
+        for p in dirs:
                 print(str(p))
+            
+    if recursive:
+        for d in dirs:
+            list_one_dir(d, True)
     
-        else:
-            print("ERROR: Unknown command")
+    else:
+         print("ERROR: Unknown command")
         
 
 
