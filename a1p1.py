@@ -1,7 +1,15 @@
-def take():
-    user_input = input()
-    if user_input == "q":
-        break
+from pathlib import Path
+
+def main():
+    while True:
+        user_input = input().strip()
+
+        if user_input == "Q":
+            break
+
+def dict():
+    dict = Path.iterdir()
+    print(dict)
 
 
 
