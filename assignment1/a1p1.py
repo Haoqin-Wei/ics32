@@ -24,7 +24,19 @@ def main():
                 print("ERROR: Directory does not exist")
                 continue
 
-            print(the_path)
+            list_dict = the_path.iterdir()
+            files = []
+            dirs = []
+            for items in list_dict:
+                if items.is_file():
+                    files.append(items)
+                elif items.is_dir():
+                    dirs.append(items)
+            
+            for i in files:
+                print(str(i))
+            for p in dirs:
+                print(str(p))
     
         else:
             print("ERROR: Unknown command")
