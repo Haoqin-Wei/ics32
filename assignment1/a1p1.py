@@ -24,37 +24,39 @@ def main():
                 print("ERROR: Directory does not exist")
                 continue
 
+            if not the_path.is_dir():
+                print("ERROR: Not a directory")
+                continue
+            
+            recursive = ("-r" in shit)
+            list_one_dir(the_path, recursive)
+
+        else:
+            print("ERROR: Unknown command")
+
 def list_one_dir(the_path: Path, recursive: bool):
     list_dict = the_path.iterdir()
     files = []
     dirs = []
+
     for items in list_dict:
         if items.is_file():
             files.append(items)
         elif items.is_dir():
             dirs.append(items)
             
-        for i in files:
+    for i in files:
                 print(str(i))
-        for p in dirs:
+    for p in dirs:
                 print(str(p))
             
     if recursive:
         for d in dirs:
             list_one_dir(d, True)
-    
-    else:
-         print("ERROR: Unknown command")
-        
-
 
 def list_dict():
     dict = Path.iterdir()
     print(dict)
-
-
-
-
 
 if __name__ == "__main__":
     main()
