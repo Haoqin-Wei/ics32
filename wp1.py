@@ -24,8 +24,8 @@ def reverse_files(ini, output):
 
 
 def In_N_Out():
-    if len(sys.argv()) < 3:
-        exit
+    if len(sys.argv) < 3:
+        sys.exit(1)
     inn = sys.argv[1]
     out = sys.argv[2]
     reverse_files(inn, out)
